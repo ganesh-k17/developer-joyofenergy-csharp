@@ -1,0 +1,14 @@
+name: Continuous Integration
+on: push  # trigger for the workflow (here it is push event)
+jobs:
+  run_code_checks: 
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Repo Code
+        uses: actions/checkout@v2
+      - name: Setup .Net
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '6.0.x'
+          include-prerelease: true
+
